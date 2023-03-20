@@ -7,16 +7,17 @@ jobs:
     steps:
         - name: Checkout
           uses: actions/checkout@v3
-          submodules: 'recursive'
+          with:
+            submodules: recursive
         - name: build sigrok
           run:  |
             docker run  --rm -v $PWD:/sigrok huangjielg/sigrok-build:latest sh /sigrok/build.sh
-        - name: Upload Swiss artifacts
+        - name: Upload pulseview artifacts
           uses: actions/upload-artifact@main
           with:
             name: pulseview
             path: build_release_64/pulseview/contrib/pulseview-*.exe
-        - name: Upload Swiss artifacts
+        - name: Upload sigrok-cli artifacts
           uses: actions/upload-artifact@main
           with:
             name: sigrok-cli
