@@ -6,7 +6,8 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
+          submodules: 'recursive'
         - name: build sigrok
           run:  |
             docker run  --rm -v $PWD:/sigrok huangjielg/sigrok-build:latest sh /sigrok/build.sh

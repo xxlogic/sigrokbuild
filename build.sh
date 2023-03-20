@@ -182,8 +182,8 @@ fi
 
 # Zadig (we ship this with frontends for easy driver switching).
 $ECHO "fetching zadig ..."
-$WGET https://ghproxy.com/https://github.com/pbatard/libwdi/releases/download/b721/zadig-2.4.exe -O $PREFIX/zadig.exe
-$WGET https://ghproxy.com/https://github.com/pbatard/libwdi/releases/download/v1.2.5/zadig_xp-2.2.exe -O $PREFIX/zadig_xp.exe
+$WGET https://github.com/pbatard/libwdi/releases/download/b721/zadig-2.4.exe -O $PREFIX/zadig.exe
+$WGET https://github.com/pbatard/libwdi/releases/download/v1.2.5/zadig_xp-2.2.exe -O $PREFIX/zadig_xp.exe
 
 # libserialport
 $ECHO "component libserialport ..."
