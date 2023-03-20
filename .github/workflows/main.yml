@@ -1,0 +1,23 @@
+name: compile sigrok
+on: push
+jobs:
+  my_first_job:
+    name: compile sigrok
+    runs-on: "ubuntu-latest"
+    steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+        - name: build sigrok
+          run:  |
+            docker run  --rm -v $PWD:/sigrok huangjielg/sigrok-build:latest sh /sigrok/build.sh
+        - name: Upload Swiss artifacts
+          uses: actions/upload-artifact@main
+          with:
+            name: pulseview
+            path: build_release_64/pulseview/contrib/pulseview-*.exe
+        - name: Upload Swiss artifacts
+          uses: actions/upload-artifact@main
+          with:
+            name: sigrok-cli
+            path: build_release_64/sigrok-cli/contrib/sigrok-cli*.exe
+            
