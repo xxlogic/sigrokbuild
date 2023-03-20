@@ -57,8 +57,8 @@ ECHO=echo
 
 $ECHO "setting up fetch variables ..."
 
-WGET="echo wget -c --quiet"
-GIT_CLONE="echo git clone --depth=1"
+WGET="wget -c --quiet"
+GIT_CLONE="git clone --depth=1"
 
 #REPO_BASE="https://ghproxy.com/https://github.com/sigrokproject"
 REPO_BASE="https://github.com/sigrokproject"
