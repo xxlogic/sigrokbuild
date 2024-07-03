@@ -60,9 +60,9 @@ $ECHO "setting up fetch variables ..."
 WGET="wget -c --quiet"
 GIT_CLONE="git clone --depth=1"
 
-#REPO_BASE="https://ghproxy.com/https://github.com/sigrokproject"
-SIGROK_REPO_BASE="https://github.com/sigrokproject"
-MY_REPO_BASE="https://github.com/xxlogic"
+#SIGROK_REPO_BASE="https://ghproxy.com/https://github.com/sigrokproject"
+SIGROK_SIGROK_REPO_BASE="https://github.com/sigrokproject"
+MY_SIGROK_REPO_BASE="https://github.com/xxlogic"
 MY_BRANCH="xlogic"
 # Construct the build and install directory pathnames.
 if [ $TARGET = "i686" ]; then
@@ -184,7 +184,7 @@ $WGET https://github.com/pbatard/libwdi/releases/download/v1.2.5/zadig_xp-2.2.ex
 
 # libserialport
 $ECHO "component libserialport ..."
-$GIT_CLONE $REPO_BASE/libserialport
+$GIT_CLONE $SIGROK_SIGROK_REPO_BASE/libserialport
 cd libserialport
 ./autogen.sh
 ./configure $C $L
@@ -194,7 +194,7 @@ cd ..
 
 # libsigrok
 $ECHO "component libsigrok ..."
-$GIT_CLONE $MY_REPO_BASE/libsigrok
+$GIT_CLONE $MY_SIGROK_REPO_BASE/libsigrok
 cd libsigrok
 git checkout $MY_BRANCH
 ./autogen.sh
@@ -205,7 +205,7 @@ cd ..
 
 # libsigrokdecode
 $ECHO "component libsigrokdecode ..."
-$GIT_CLONE $REPO_BASE/libsigrokdecode
+$GIT_CLONE $SIGROK_SIGROK_REPO_BASE/libsigrokdecode
 cd libsigrokdecode
 ./autogen.sh
 ./configure $C $L
@@ -215,7 +215,7 @@ cd ..
 
 # sigrok-firmware
 $ECHO "component sigrok-firmware ..."
-$GIT_CLONE $REPO_BASE/sigrok-firmware
+$GIT_CLONE $SIGROK_REPO_BASE/sigrok-firmware
 cd sigrok-firmware
 ./autogen.sh
 # Nothing gets cross-compiled here, we just need 'make install' basically.
@@ -225,7 +225,7 @@ cd ..
 
 # sigrok-firmware-fx2lafw
 # $ECHO "component sigrok-firmware-fx2lafw ..."
-# $GIT_CLONE $REPO_BASE/sigrok-firmware-fx2lafw
+# $GIT_CLONE $SIGROK_REPO_BASE/sigrok-firmware-fx2lafw
 # cd sigrok-firmware-fx2lafw
 # ./autogen.sh
 # We're building the fx2lafw firmware on the host, no need to cross-compile.
@@ -236,14 +236,14 @@ cd ..
 
 # sigrok-dumps
  $ECHO "component sigrok-dumps ..."
- $GIT_CLONE $REPO_BASE/sigrok-dumps
+ $GIT_CLONE $SIGROK_REPO_BASE/sigrok-dumps
  cd sigrok-dumps
  make install PREFIX=$PREFIX $V
  cd ..
 
 # sigrok-cli
 $ECHO "component sigrok-cli ..."
-$GIT_CLONE $REPO_BASE/sigrok-cli
+$GIT_CLONE $SIGROK_REPO_BASE/sigrok-cli
 cd sigrok-cli
 ./autogen.sh
 ./configure $C
@@ -258,7 +258,7 @@ cd ..
 
 # PulseView
 $ECHO "component pulseview ..."
-$GIT_CLONE $MY_REPO_BASE/pulseview
+$GIT_CLONE $MY_SIGROK_REPO_BASE/pulseview
 cd pulseview
 git checkout $MY_BRANCH
 #patch -p1 < $TOP_DIR/sigrok-util/cross-compile/mingw/pulseview-boost-numeric-literals.patch

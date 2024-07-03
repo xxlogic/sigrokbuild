@@ -11,7 +11,7 @@ jobs:
             submodules: recursive
         - name: build sigrok
           run:  |
-            docker run  --rm -v $PWD:/sigrok huangjielg/sigrok-build:latest sh /sigrok/build.sh
+            docker run  --rm -v $PWD:/sigrok ghcr.io/xxlogic/sigrokdocker2:main sh /sigrok/build.sh
         - name: Upload pulseview artifacts
           uses: actions/upload-artifact@main
           with:
