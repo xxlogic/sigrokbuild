@@ -1,6 +1,6 @@
 name: compile sigrok
-on: push
-on: workflow_dispatch
+on:workflow_dispatch
+
 
 jobs:
   my_first_job:
