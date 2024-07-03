@@ -9,7 +9,7 @@ on:
         default: 'warning'
       tags:
         description: 'Test scenario tags'  
-on: push
+  push
 
 jobs:
   my_first_job:
