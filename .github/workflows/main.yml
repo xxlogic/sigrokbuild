@@ -1,5 +1,5 @@
 name: compile sigrok
-on: push
+
 on: 
   workflow_dispatch:
     inputs:
@@ -9,7 +9,7 @@ on:
         default: 'warning'
       tags:
         description: 'Test scenario tags'  
-
+on: push
 
 jobs:
   my_first_job:
