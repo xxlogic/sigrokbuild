@@ -1,5 +1,7 @@
 name: compile sigrok
 on: push
+on: workflow_dispatch
+
 jobs:
   my_first_job:
     name: compile sigrok
