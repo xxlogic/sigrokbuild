@@ -61,7 +61,7 @@ WGET="wget -c --quiet"
 GIT_CLONE="git clone --depth=1"
 
 #SIGROK_REPO_BASE="https://ghproxy.com/https://github.com/sigrokproject"
-SIGROK_SIGROK_REPO_BASE="https://github.com/sigrokproject"
+SIGROK_REPO_BASE="https://github.com/sigrokproject"
 MY_SIGROK_REPO_BASE="https://github.com/xxlogic"
 MY_BRANCH="xlogic"
 # Construct the build and install directory pathnames.
@@ -184,7 +184,7 @@ $WGET https://github.com/pbatard/libwdi/releases/download/v1.2.5/zadig_xp-2.2.ex
 
 # libserialport
 $ECHO "component libserialport ..."
-$GIT_CLONE $SIGROK_SIGROK_REPO_BASE/libserialport
+$GIT_CLONE $SIGROK_REPO_BASE/libserialport
 cd libserialport
 ./autogen.sh
 ./configure $C $L
@@ -204,7 +204,7 @@ cd ..
 
 # libsigrokdecode
 $ECHO "component libsigrokdecode ..."
-$GIT_CLONE $SIGROK_SIGROK_REPO_BASE/libsigrokdecode
+$GIT_CLONE $SIGROK_REPO_BASE/libsigrokdecode
 cd libsigrokdecode
 ./autogen.sh
 ./configure $C $L
