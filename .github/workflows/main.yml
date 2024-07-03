@@ -1,7 +1,7 @@
 name: compile sigrok
 
 on: 
-  - workflow_dispatch:
+   workflow_dispatch:
     inputs:
       logLevel:
         description: 'Log level'     
@@ -9,8 +9,6 @@ on:
         default: 'warning'
       tags:
         description: 'Test scenario tags'  
-  - push
-  
 
 jobs:
   my_first_job:
