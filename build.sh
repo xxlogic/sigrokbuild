@@ -61,8 +61,9 @@ WGET="wget -c --quiet"
 GIT_CLONE="git clone --depth=1"
 
 #REPO_BASE="https://ghproxy.com/https://github.com/sigrokproject"
-REPO_BASE="https://github.com/sigrokproject"
-
+SIGROK_REPO_BASE="https://github.com/sigrokproject"
+MY_REPO_BASE="https://github.com/xxlogic"
+MY_BRANCH="xlogic"
 # Construct the build and install directory pathnames.
 if [ $TARGET = "i686" ]; then
 	SUFFIX="32"
@@ -193,8 +194,9 @@ cd ..
 
 # libsigrok
 $ECHO "component libsigrok ..."
-$GIT_CLONE $REPO_BASE/libsigrok
+$GIT_CLONE $MY_REPO_BASE/libsigrok
 cd libsigrok
+git checkout $MY_BRANCH
 ./autogen.sh
 ./configure $C $L   --without-libhidapi --without-libserialport --without-libftdi
 make $PARALLEL $V
@@ -256,8 +258,9 @@ cd ..
 
 # PulseView
 $ECHO "component pulseview ..."
-$GIT_CLONE $REPO_BASE/pulseview
+$GIT_CLONE $MY_REPO_BASE/pulseview
 cd pulseview
+git checkout $MY_BRANCH
 #patch -p1 < $TOP_DIR/sigrok-util/cross-compile/mingw/pulseview-boost-numeric-literals.patch
 #patch -p1 < $TOP_DIR/sigrok-util/cross-compile/mingw/pulseview-manual-pdf-hack.patch
 cp $TOP_DIR/sigrok-util/cross-compile/mingw/FileAssociation.nsh contrib
