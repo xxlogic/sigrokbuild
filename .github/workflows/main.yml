@@ -1,6 +1,8 @@
 name: compile sigrok
-on:workflow_dispatch
-
+on: workflow_dispatch:
+    inputs:
+    tags:
+        description: 'Test scenario tags'  
 
 jobs:
   my_first_job:
